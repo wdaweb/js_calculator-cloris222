@@ -1,0 +1,605 @@
+* {
+    font-family: "微軟正黑體", 'Roboto';
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#header i:hover,
+img:hover,
+li:hover {
+    cursor: pointer;
+}
+
+/* Header */
+
+#header {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* header長條底 */
+#header .container {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    border-bottom: 1px solid rgba(193, 192, 192, 0.5);
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.97);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#header .sidebaricon {
+    position: absolute;
+    left: 30px;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    transform: scale(1.2);
+    box-sizing: border-box;
+}
+
+
+#header .YtLogo .card {
+    box-sizing: border-box;
+    width: 120px;
+    height: 56px;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    padding: 2px 14px 2px 16px;
+}
+
+#header .YtLogo .card img {
+    width: 100%;
+    height: 100%;
+}
+
+#header input[type='text'] {
+    width: 541px;
+    height: 40px;
+    border: 1px solid #aaa;
+    font-size: 1rem;
+    position: absolute;
+    top: 5px;
+    left: 47%;
+    transform: translateX(-50%);
+}
+
+
+
+#header .findicon .card {
+    position: absolute;
+    top: 5px;
+    left: 61%;
+    width: 64px;
+    height: 42px;
+    border: 1px solid #aaa;
+    background: rgba(242, 242, 242, 1);
+    padding: 0 6px;
+}
+
+#header .findicon .card i {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 60%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+}
+
+#header .microphone .card {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 8px;
+    left: 66%;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: rgba(242, 242, 242, 1);
+    padding: 8px;
+}
+
+#header .microphone .card i {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 59%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+}
+
+#header .threedots .card {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -2px;
+    left: 90%;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+#header .threedots .card i {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 59%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+    transform: scale(1.2);
+}
+
+#header .loginbutton .container {
+    width: 85px;
+    height: 63px;
+    padding: 0 11px;
+    position: absolute;
+    top: -4px;
+    left: 1406px;
+    border: 0;
+    background: transparent;
+}
+
+#header .loginbutton .card {
+    width: 83px;
+    height: 34px;
+    border: 1px solid rgb(109, 161, 230);
+    position: absolute;
+    top: 15px;
+    right: -400px;
+}
+
+#header .loginbutton .card i {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 34%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    transform: scale(1.2);
+    color: rgb(109, 161, 230);
+}
+
+#header .loginbutton .card .loginletter {
+    display: inline-block;
+    color: rgb(109, 161, 230);
+    font-size: 14px;
+    position: absolute;
+    top: 36%;
+    left: 52%;
+}
+
+/* Sidebar */
+
+#smallsidebar {
+    width: 72px;
+    height: 913px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 56px;
+}
+
+#smallsidebar .card {
+    width: 72px;
+    height: 74px;
+    box-sizing: border-box;
+    padding: 16px 0 14px 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+#smallsidebar .card:hover {
+    cursor: pointer;
+    background: rgb(243, 241, 241);
+}
+
+#smallsidebar>.card i {
+    font-size: 18px;
+    padding-bottom: 8px;
+}
+
+
+
+
+#sidebar {
+    width: 240px;
+    position: fixed;
+    margin-top: -20px;
+    margin-left: -500px;
+}
+
+#sidebarcheck {
+    display: none;
+}
+
+
+/* + 抓相鄰 */
+/* ~ 抓同一層的元素 */
+/* 要抓到#sidebar 所以要將#sidebarcheck放到跟#sidebar同一層 */
+#sidebarcheck:checked~#sidebar {
+    margin-left: 0;
+}
+
+#sidebar .row {
+    width: 100%;
+    height: 969px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#sidebar .col {
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    padding: 12px 4px 12px 0;
+}
+
+#sidebar .col li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10%;
+    font-size: 14px;
+}
+
+#sidebar .col li:hover {
+    background: rgb(237, 234, 234);
+    cursor: pointer;
+}
+
+#sidebar .col p {
+    width: 100%;
+    height: 121px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    padding: 16px 16px 32px 16px;
+}
+
+#sidebar .col i {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+}
+
+#sidebar .card3 .container {
+    width: 83px;
+    height: 34px;
+    border: 1px solid rgb(109, 161, 230);
+    position: absolute;
+    top: 380px;
+    left: 17px;
+}
+
+#sidebar .card3 .container i {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 34%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+    transform: scale(1.2);
+    color: rgb(109, 161, 230);
+}
+
+#sidebar .card3 .container .loginletter {
+    display: inline-block;
+    color: rgb(109, 161, 230);
+    font-size: 14px;
+    position: absolute;
+    top: 35%;
+    left: 48%;
+}
+
+/* part4 */
+#sidebar .card4 p {
+    width: 240px;
+    height: 34.4px;
+    box-sizing: border-box;
+    padding: 8px 24px;
+}
+
+/* part5 */
+#sidebar .card5 {
+    height: 40px;
+}
+
+#sidebar .card5:hover {
+    background: rgb(237, 234, 234);
+    cursor: pointer;
+}
+
+#sidebar .card5 p {
+    width: 100%;
+    font-size: 14px;
+    line-height: 100%;
+    box-sizing: border-box;
+    padding: 16px 16px 32px 16px;
+    position: absolute;
+    left: 8px;
+}
+
+/* part6 */
+#sidebar .card6 {
+    width: 100%;
+    height: 194.4px;
+}
+
+#sidebar .card6 p {
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    line-height: 100%;
+    box-sizing: border-box;
+    padding: 8px 24px 8px 16px;
+    position: absolute;
+    left: 8px;
+}
+
+#sidebar .card6 ul {
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    bottom: -8%;
+}
+
+#sidebar .card6 ul i {
+    width: 24px;
+    height: 24px;
+    color: red;
+}
+
+/* part7 */
+#sidebar .card7 {
+    width: 100%;
+    height: 176px;
+    box-sizing: border-box;
+    padding: 8px 0;
+}
+
+/* part8 */
+#sidebar .container_8 {
+    width: 100%;
+    height: 151px;
+    font-size: 0;
+    position: relative;
+}
+
+#sidebar .card8_1 {
+    width: 100%;
+    height: 53px;
+    padding: 8px 12px 0 12px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    position: absolute;
+    top: 20%;
+    left: 117px;
+    transform: translate(-50%, -50%);
+
+}
+
+#sidebar .card8_2 {
+    width: 100%;
+    height: 53px;
+    padding: 8px 12px 0 12px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    position: absolute;
+    top: 54%;
+    left: 117px;
+    transform: translate(-50%, -50%);
+}
+
+
+#sidebar .card8_1 span,
+.card8_2 span {
+    display: inline-block;
+    height: 18px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    font-size: 8px;
+}
+
+.copyright {
+    color: #aaa;
+    font-size: 8px;
+    position: absolute;
+    left: 18px;
+    bottom: -45%;
+}
+
+/* tag */
+#tag {
+    width: 1664px;
+    height: 56px;
+    position: fixed;
+    top: 56px;
+    left: 241px;
+    z-index: 1;
+}
+
+#tag .container {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(193, 192, 192, 0.5);
+}
+
+#tag .card {
+    width: 742.672px;
+    height: 56px;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    margin: auto;
+}
+
+#tag .shortlist {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    width: 54.41px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    padding: 0 12px;
+    font-size: 14px;
+    background: rgb(235, 235, 235);
+}
+
+#tag .longlist3 {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    width: 71.41px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    padding: 0 12px;
+    font-size: 14px;
+    background: rgb(0, 0, 0);
+    color: #fff;
+}
+
+#tag .longlist4 {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    width: 82.81px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    padding: 0 12px;
+    font-size: 14px;
+    background: rgb(235, 235, 235);
+}
+
+#tag .shortlist:hover,
+#tag .longlist4:hover {
+    background: rgb(223, 220, 220);
+}
+
+#tag li {
+    margin: 12px 12px 12px 0;
+}
+
+/* content */
+#content {
+    box-sizing: border-box;
+    width: 1664px;
+    margin: 140px 360px 60px 320px;
+    padding-right: 100px;
+    background: rgb(249, 249, 249);
+}
+
+;
+
+/* 橫排範圍 */
+
+#content .row1 {
+    width: 1548px;
+    margin-bottom: 40px;
+}
+
+#content .row2 {
+    width: 1548px;
+    padding-bottom: 40px;
+    border-bottom: 5px solid rgb(230, 230, 230);
+}
+
+#content .col {
+    width: 370px;
+    display: inline-block;
+    margin: 0 7px;
+    font-size: 0;
+}
+
+#content .card {
+    font-size: 14px;
+}
+
+#content .card:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform 1s;
+    transition-delay: 1s;
+}
+
+#content .cardhead img {
+    width: 360px;
+    height: 202px;
+
+}
+
+#content .cardleft {
+    margin-right: 5px;
+}
+
+#content .cardleft img {
+    float: left;
+    width: 36px;
+    height: 36px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    margin-right: 0;
+}
+
+#content .cardright {
+    float: right;
+    width: calc(360px - 40px);
+    height: 120px;
+    margin-top: 7px;
+}
+
+#content .cardright span {
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+
+#content .title {
+
+    width: 300px;
+    height: 44px;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+#content .chanels {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: gray;
+}
+
+#content .viewer {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: gray;
+}
+
+#content .viewer .letterdot {
+    font-size: 40px;
+    letter-spacing: 1px;
+    color: gray;
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+
+
+        table {
+            width: 250px;
+            height: 450px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+            border-spacing: 0;
+            table-layout: fixed;
+        }
+
+
+        table td {
+            width: calc(250px / 4);
+        }
+
+        #head {
+            height: 200px;
+            border: none;
+            background: darkblue;
+            color: aliceblue;
+        }
+
+        #name {
+            text-align: left;
+            position: absolute;
+            top: 26px;
+            left: 17px;
+            font-size: 20px;
+        }
+
+        #process {
+            display: none;
+            position: absolute;
+            top: 88px;
+            right: 11px;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+
+
+        #symbol {
+            display: none;
+            position: absolute;
+            top: 138px;
+            left: 23px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .result {
+            position: absolute;
+            top: 136px;
+            right: 21px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .count {
+            background: rgb(230, 242, 255);
+            font-size: 18px;
+        }
+
+        #answer {
+            background: rgb(193, 223, 255);
+        }
+
+
+        table td:not(#head, #result, #name, #process, .count):hover {
+            background: darkblue;
+            color: aliceblue;
+            cursor: pointer;
+        }
+
+        .count:hover {
+            background: rgb(255, 188, 188);
+            color: darkblue;
+            cursor: pointer;
+        }
+
+        .hight {
+            background-color: darkblue;
+            color: aliceblue;
+        }
+
+        .smallletter {
+            position: absolute;
+            top: 144px;
+            right: 5px;
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <table>
+            <tr>
+                <td id="head" colspan="4">
+                    <span id="name">Calculator</span>
+                    <br>
+                    <span id="process">0</span>
+                    <span id="symbol">=</span>
+                    <span class="result" sty>0</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="count">C</td>
+                <td class="count">±</td>
+                <td class="count">%</td>
+                <td class="count">/</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td class="count">*</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td class="count">-</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td class="count">+</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>.</td>
+                <td id="del"><i class="fa-solid fa-delete-left"></i></td>
+                <td id="answer">=</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <script>
+        const result = document.querySelector('.result')
+        const btns = document.querySelectorAll('td:not(#head,.result,#name,#process)')
+        let process = document.querySelector('#process')
+        const symbol = document.querySelector('#symbol')
+        let reset = false
+
+        // 點擊按鈕開始運作
+        for (const btn of btns) {
+            btn.onclick = () => {
+                count(btn.innerText)
+            }
+        }
+
+        // 設定鍵盤輸入
+        document.body.addEventListener('keydown', (e) => {
+            if (!isNaN(Number(e.key)) || ['+', '-', '*', '/', 'Enter', 'C', 'c'].includes(e.key)) {
+                count(e.key)
+                btns.forEach((btn) => {
+                    if (btn.innerText === e.key || btn.innerText === e.key.toUpperCase()) {
+                        btn.classList.add('hight')
+                    }
+                    setTimeout(() => {
+                        btn.classList.remove('hight')
+                    }, 200)
+                })
+            }
+        })
+
+        // 計算機運作功能
+        function count(value) {
+            process.style.display = 'block'
+            symbol.style.display = 'block'
+
+            const btnText = value
+            const resultText = result.innerText
+
+            // 字太長變小
+            if (resultText.length >= 10) {
+                result.classList.add('smallletter')
+            }
+            console.log(resultText.length)
+
+            if (btnText === "=" || btnText === "Enter") {
+                result.innerText = eval(result.innerText)
+                reset = true
+            } else if (btnText === 'C' || btnText === 'c') {
+                result.innerText = "0"
+                process.innerText = '0'
+                process.style.display = 'none'
+                symbol.style.display = 'none'
+            } else if (btnText === '') {
+                result.innerText = result.innerText.substr(0, parseInt(result.innerText.length) - 1)
+                process.innerText = result.innerText
+            } else if ((btnText === '±' || btnText === '-') && resultText === '0') {
+                if (result.innerText == 0) {
+                    result.innerText = '-'
+                    process.innerText = result.innerText
+                } else {
+                    result.innerText = result.innerText * -1
+                    process.innerText = result.innerText
+                }
+            } else {
+                if (resultText !== '0' && !reset) {
+                    if (isNaN(Number(result.innerText[result.innerText.length - 1])) && isNaN(Number(btnText))) {
+                        return
+                    }
+                    if (resultText === '-' && btnText === '0') {
+                        return
+                    }
+                    result.innerText += btnText
+                    process.innerText = result.innerText
+
+                } else if (!['+', '*', '/', '.'].includes(btnText)) {
+                    result.innerText = btnText
+                    process.innerText = result.innerText
+                    reset = false
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
